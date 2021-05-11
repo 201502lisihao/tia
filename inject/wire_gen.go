@@ -8,6 +8,7 @@ package inject
 import (
 	"my-project/internal"
 	"my-project/internal/app"
+	"my-project/internal/app/server"
 	"my-project/internal/config"
 )
 
@@ -18,7 +19,8 @@ func InitApp(env string) (*internal.App, func(), error) {
 	if err != nil {
 		return nil, nil, err
 	}
-	enter := app.NewEnter(configConfig)
+	apiServer := server.NewApiServer()
+	enter := app.NewEnter(configConfig, apiServer)
 	internalApp := internal.NewApp(enter)
 	return internalApp, func() {
 	}, nil

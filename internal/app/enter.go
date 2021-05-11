@@ -17,20 +17,22 @@ import (
 
 type Enter struct {
 	conf *config.Config
+	apiServer *server.ApiServer
 }
 
 func NewEnter(
 	conf *config.Config,
+	apiServer *server.ApiServer,
 ) *Enter {
 	return &Enter{
 		conf: conf,
+		apiServer: apiServer,
 	}
 }
 
 func (e *Enter) BootGrpcServer() error {
 	s := grpc.NewServer()
-	apiServer := server.NewApiServer()
-	api.RegisterApiServer(s, apiServer)
+	api.RegisterApiServer(s, e.apiServer)
 
 	lis, err := net.Listen("tcp", e.conf.App.Addr.Grpc)
 	if err != nil {
