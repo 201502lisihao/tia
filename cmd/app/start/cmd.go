@@ -30,11 +30,11 @@ func run(cmd *cobra.Command, _ []string) error {
 
 	var g errgroup.Group
 	g.Go(func() error {
-		return app.Enter.BootGrpcServer()
+		return app.ServerRunner.RunGrpcServer()
 	})
 
 	g.Go(func() error {
-		return app.Enter.BootHttpServer()
+		return app.ServerRunner.RunHttpServer()
 	})
 
 	return g.Wait()

@@ -20,8 +20,8 @@ func InitApp(env string) (*internal.App, func(), error) {
 		return nil, nil, err
 	}
 	apiServer := server.NewApiServer()
-	enter := app.NewEnter(configConfig, apiServer)
-	internalApp := internal.NewApp(enter)
+	serverRunner := app.NewServerRunner(configConfig, apiServer)
+	internalApp := internal.NewApp(serverRunner)
 	return internalApp, func() {
 	}, nil
 }

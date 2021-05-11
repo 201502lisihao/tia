@@ -5,13 +5,13 @@ import (
 )
 
 type App struct {
-	Enter *app.Enter
+	ServerRunner *app.ServerRunner
 }
 
 func NewApp(
-	Enter *app.Enter,
+	ServerRunner *app.ServerRunner,
 ) *App {
 	return &App{
-		Enter: Enter,
+		ServerRunner: ServerRunner,
 	}
 }

@@ -15,22 +15,22 @@ import (
 	"my-project/internal/config"
 )
 
-type Enter struct {
+type ServerRunner struct {
 	conf *config.Config
 	apiServer *server.ApiServer
 }
 
-func NewEnter(
+func NewServerRunner(
 	conf *config.Config,
 	apiServer *server.ApiServer,
-) *Enter {
-	return &Enter{
+) *ServerRunner {
+	return &ServerRunner{
 		conf: conf,
 		apiServer: apiServer,
 	}
 }
 
-func (e *Enter) BootGrpcServer() error {
+func (e *ServerRunner) RunGrpcServer() error {
 	s := grpc.NewServer()
 	api.RegisterApiServer(s, e.apiServer)
 
@@ -44,7 +44,7 @@ func (e *Enter) BootGrpcServer() error {
 	return s.Serve(lis)
 }
 
-func (e *Enter) BootHttpServer() error {
+func (e *ServerRunner) RunHttpServer() error {
 	ctx := context.Background()
 
 	mux := runtime.NewServeMux()

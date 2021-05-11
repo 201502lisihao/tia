@@ -7,6 +7,6 @@ import (
 )
 
 var WireSet = wire.NewSet(
-	NewEnter,
+	NewServerRunner,
 	server.NewApiServer,
 )
