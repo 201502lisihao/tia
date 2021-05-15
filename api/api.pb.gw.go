@@ -145,7 +145,7 @@ func RegisterApiHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 }
 
 var (
-	pattern_Api_Hello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"myProject", "hello"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Api_Hello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"tiaDemo", "hello"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

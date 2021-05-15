@@ -15,6 +15,7 @@ func InitApp(env string) (*internal.App, func(), error) {
 		internal.NewApp,
 		app.WireSet,
 		config.WireSet,
+		//conn.WireSet,
 	)
 
 	return &internal.App{}, nil, nil

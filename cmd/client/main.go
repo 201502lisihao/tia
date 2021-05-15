@@ -10,6 +10,7 @@ import (
 	"my-project/api"
 )
 
+// grpc client
 func main() {
 	conn, err := grpc.Dial("127.0.0.1:8000", grpc.WithInsecure())
 	if err != nil {
